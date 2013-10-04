@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery gridInput DEMO</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" rel="stylesheet" href="jquery.grid.input.css" />
+        <script type="text/javascript" src="jquery.js" ></script>
+        <script type="text/javascript" src="jquery.grid.input.js" ></script>
+        <script>
+            $(function () {
+                $(document).ready(function () {
+                    $('.gridInput').gridInput();
+                    $('.gridInput#customLength').gridInput({length: 40});
+
+                    $('.gridInput').change(function () {
+                        var value = '';
+                        $('.gridInput').each(function (k, v) {
+                            value += '<span>' + $(v).val() + '</span><br/>';
+                        });
+                        $('#gridInputPreview').html(value);
+                    }).change();
+                });
+            });
+        </script>
+        <style>
+            .wrapper{
+                max-width: 900px;
+                background-color: #F0F0F0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form method="post">
+                <input type="text" name="test" class="gridInput" value="gridInputRox!" />
+                <input type="text" name="test" class="gridInput" value="As simple as that..." />
+                <input type="text" name="test" class="gridInput" value="Why?" />
+                <input type="text" name="test" class="gridInput" id="customLength" value="This has custom length" />
+            </form>
+
+            <div class="preview">
+                <p id="gridInputPreview">Preview</p>
+            </div>
+        </div>
+    </body>
+</html>
